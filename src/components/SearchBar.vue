@@ -1,42 +1,39 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import VueInput from '@/components/helper components/VueInput.vue'
+import VueButton from '@/components/helper components/VueButton.vue'
+
+const query = ref<string>('')
+const emit = defineEmits<{
+  (e: 'search', query: string): void
+}>()
+const handleSearch = (query: string) => {
+  emit('search', query)
+}
+</script>
+
 <template>
-  <div class="search-bar">
-    <input
+  <div class="d-flex gap-1">
+    <VueInput
+      @update:modelValue="handleSearch"
+      v-model="query"
+      id="search-query"
+      :is-valid="null"
+      placeholder="Search by name..."
       type="text"
-      placeholder="Search by name"
-      v-model="searchTerm"
-      @input="onSearch"
-    />
+    ></VueInput>
+    <VueButton
+      @onClick="
+        () => {
+          handleSearch('')
+          query = ''
+        }
+      "
+      button-type="button"
+      button-style="secondary"
+      >Reset</VueButton
+    >
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
-
-export default defineComponent({
-  name: "SearchBar",
-  setup(props, { emit }) {
-    const searchTerm = ref("");
-
-    const onSearch = () => {
-      emit("filter-by-name", searchTerm.value);
-    };
-
-    return {
-      searchTerm,
-      onSearch,
-    };
-  },
-});
-</script>
-
-<style scoped>
-.search-bar {
-  margin-bottom: 1rem;
-}
-.search-bar input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-</style>
+<style scoped></style>
