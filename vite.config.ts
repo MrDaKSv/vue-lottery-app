@@ -14,6 +14,6 @@ export default defineConfig({
     }
   },
   server: {
-    port: 5500, // Вказуємо порт 5500
+    port: 5501, // Вказуємо порт 5500
   }
 })
