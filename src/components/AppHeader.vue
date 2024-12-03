@@ -19,8 +19,9 @@ import AppNavigation from "@/components/AppNavigation.vue";
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid black;
-  background-color: #0d6efd;
+  background-color: #f1f1f1; /* світло-сірий колір */
 }
+
 
 .headerNavigation {
   display: flex;

@@ -4,7 +4,7 @@
   <div class="wrapper">
     <h1>About page</h1>
     <hr class="line" />
-    <p>My company name is Kabachok</p>
+    <p>Made by @Utconos</p>
   </div>
 </template>
 
